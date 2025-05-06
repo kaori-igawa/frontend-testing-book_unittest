@@ -66,4 +66,4 @@ test('returnしていないためPromiseが解決する前にテストが終了�
   expect(wait(2000)).resolves.toBe(3000);
   // 正しくはアサーションをreturnする
   // return expect(wait(2000)).resolves.toBe(3000);
-})
+});
