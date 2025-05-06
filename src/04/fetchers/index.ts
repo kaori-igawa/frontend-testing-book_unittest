@@ -1,13 +1,21 @@
-import type { Profile } from './type';
+import type { Articles, Profile } from './type';
+
+async function handleResponse(res: Response) {
+  const data = await res.json();
+
+  if(!res.ok) {
+    // 200番台以外のレスポンスの場合
+    throw data;
+  }
+  return data;
+}
+
+const host = (path: string) => `https://myapi.testing.com${path}`;
 
 export function getMyProfile(): Promise<Profile> {
-  return fetch('https://myapi.testing.com/my/profile').then(async (res) => {
-    const data = await res.json();
+  return fetch(host('/my/profile')).then(handleResponse);
+}
 
-    if(!res.ok) {
-      // 200番台以外のレスポンスの場合
-      throw data;
-    }
-    return data;
-  });
+export function getMyArticles(): Promise<Articles> {
+  return fetch(host('/my/articles')).then(handleResponse);
 }
