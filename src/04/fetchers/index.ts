@@ -1,4 +1,4 @@
-import type { Articles, Profile } from './type';
+import type { Article, Articles, ArticleInput, Profile } from './type';
 
 async function handleResponse(res: Response) {
   const data = await res.json();
@@ -18,4 +18,11 @@ export function getMyProfile(): Promise<Profile> {
 
 export function getMyArticles(): Promise<Articles> {
   return fetch(host('/my/articles')).then(handleResponse);
+}
+
+export function postMyArticle(input: ArticleInput): Promise<Article> {
+  return fetch(host('/my/articles'), {
+    method: 'POST',
+    body: JSON.stringify(input),
+  }).then(handleResponse);
 }

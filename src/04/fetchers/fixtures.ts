@@ -1,4 +1,4 @@
-import type { Articles, HttpError } from './type';
+import type { Article, Articles, HttpError } from './type';
 
 export const httpError: HttpError = {
   err: { message: 'internal server error'},
@@ -28,4 +28,12 @@ export const getMyArticlesData: Articles = {
       body: "Jest は単体テストとして、UIコンポーネントのテストが可能です…",
     },
   ],
+};
+
+export const postMyArticleData: Article = {
+  id: "xxxxxxx-123456",
+  createdAt: "2022-07-19T22:38:41.005Z",
+  tags: ["testing", "react"],
+  title: "Jest ではじめる React のコンポーネントテスト",
+  body: "Jest は単体テストとして、UIコンポーネントのテストが可能です。",
 };
