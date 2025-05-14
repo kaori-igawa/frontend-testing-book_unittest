@@ -33,3 +33,8 @@ test('ボタンを押下するとイベントハンドラーが実行される',
   fireEvent.click(screen.getByRole('button'));
   expect(mockFn).toHaveBeenCalled();
 });
+
+test('Snapshot: アカウント名「taro」が表示される', () => {
+  const { container } = render(<Form name='taro' />);
+  expect(container).toMatchSnapshot();
+});
