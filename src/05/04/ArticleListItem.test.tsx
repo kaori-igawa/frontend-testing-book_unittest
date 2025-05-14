@@ -12,3 +12,8 @@ test('IDに紐づいたリンクが表示される', () => {
   // toHaveAttribute ⇛ 要素の属性を検証するマッチャー
   expect(screen.getByRole('link', {name: 'もっと見る'})).toHaveAttribute('href', '/articles/howto-testing-with-typescript');
 });
+
+test('Snapshot: 一覧要素が表示される', () => {
+  const { container } = render(<ArticleListItem {...item} />);
+  expect(container).toMatchSnapshot();
+});

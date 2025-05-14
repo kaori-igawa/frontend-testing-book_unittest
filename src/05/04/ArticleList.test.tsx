@@ -38,3 +38,8 @@ test('一覧アイテムが空のとき「投稿記事がありません」が�
   expect(screen.getByText('投稿記事がありません')).toBeInTheDocument();
 });
 
+test('Snapshot: itemsの数だけ一覧表示される', () => {
+  const { container } = render(<ArticleList items={items} />);
+  expect(container).toMatchSnapshot();
+});
+
