@@ -35,6 +35,6 @@ test('ボタンを押下するとイベントハンドラーが実行される',
 });
 
 test('Snapshot: アカウント名「taro」が表示される', () => {
-  const { container } = render(<Form name='taro' />);
+  const { container } = render(<Form name='jiro' />);
   expect(container).toMatchSnapshot();
 });
