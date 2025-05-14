@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { getByText, render, screen } from '@testing-library/react';
 import { mockPostMyAddress } from './fetchers/mock';
 import { RegisterAddress } from './RegisterAddress';
 import { inputContactNumber, inputDeliveryAddress, clickSubmit } from './testingUtils';
@@ -45,3 +45,9 @@ test('バリデーションエラー時、メッセージが表示される', as
   await fillInvalidValuesAndSubmit();
   expect(screen.getByText('不正な入力値が含まれています')).toBeInTheDocument();
 });
+
+test('不明なエラー時、メッセージが表示される', async () => {
+  render(<RegisterAddress />);
+  await fillValuesAndSubmit();
+  expect(screen.getByText('不明なエラーが発生しました')).toBeInTheDocument();
+})
