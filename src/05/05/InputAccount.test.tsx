@@ -39,3 +39,8 @@ test('パスワード入力テスト', async () => {
   await user.type(password, value);
   expect(screen.getByDisplayValue(value)).toBeInTheDocument();
 });
+
+test('Snapshot: アカウント情報の入力フォームが表示される', () => {
+  const { container } = render(<InputAccount />);
+  expect(container).toMatchSnapshot();
+})
