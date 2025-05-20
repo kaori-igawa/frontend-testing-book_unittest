@@ -65,6 +65,11 @@ describe('過去のお届け先がない場合', () => {
     await clickSubmit();
     expect(mockFn).toHaveBeenCalledWith(expect.objectContaining({ ...contactNumber, ...deliveryAddress}));
   });
+
+  test('Snapshot', () => {
+    const { container } = render(<Form />);
+    expect(container).toMatchSnapshot();
+  });
 });
 
 describe('過去のお届け先がある場合', () => {
@@ -93,5 +98,10 @@ describe('過去のお届け先がある場合', () => {
     const deliveryAddress = await inputDeliveryAddress();
     await clickSubmit();
     expect(mockFn).toHaveBeenCalledWith(expect.objectContaining({ ...contactNumber, ...deliveryAddress}));
+  });
+
+  test('Snapshot', () => {
+    const { container } = render(<Form deliveryAddresses={deliveryAddresses} />);
+    expect(container).toMatchSnapshot();
   });
 });
