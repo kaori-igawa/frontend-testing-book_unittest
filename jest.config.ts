@@ -1,6 +1,6 @@
 export default {
   clearMocks: true,
-  collectCoverage: false,
+  collectCoverage: true, // カバレッジレポートを自動で出力するかどうか
   coverageDirectory: "coverage",
   moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
   testEnvironment: "jest-environment-jsdom", // defaultのテスト環境を指定する
